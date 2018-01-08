@@ -1,0 +1,14 @@
+name: pyspark-tutorial
+channels:
+- conda-forge
+- defaults
+dependencies:
+- bokeh
+- jupyter
+- numpy
+- pandas
+- python=3
+- seaborn
+- pip:
+  - path.py
+  - pyspark==2.2.0.post0
