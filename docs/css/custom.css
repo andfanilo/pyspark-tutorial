@@ -1,0 +1,44 @@
+.reveal .test {
+	background-color: purple;
+}
+
+.reveal .test .text_cell_render {
+	font-size: 48px;
+}
+
+.reveal .hero {
+	background: url('../img/hero.jpg') no-repeat 50% 50%;
+	background-size: cover;
+}
+
+.reveal .hero .text_cell_render {
+	color: white;
+}
+
+.reveal .arrow {
+	text-align: center;
+}
+
+.reveal .grid .text_cell_render {
+	display: grid;
+	grid-template-columns: 150px 150px 150px 150px 150px;
+	grid-template-rows: auto 150px auto 150px auto;
+}
+
+.reveal .grid .item-1 {
+	grid-column: 1;
+	grid-row: 1;
+	background-color: blue;
+}
+
+.reveal .grid .item-2 {
+	grid-column: 3;
+	grid-row: 1;
+	background-color: yellow;
+}
+
+.reveal .grid .item-9 {
+	grid-column: 5;
+	grid-row: 5;
+	background-color: red;
+}
