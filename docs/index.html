@@ -11948,7 +11948,7 @@ a.anchor-link {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark</span> <span class="k">import</span> <span class="n">SparkContext</span><span class="p">,</span> <span class="n">SparkConf</span>
 
-<span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s1">&#39;lecture-lyon2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s1">&#39;local[*]&#39;</span><span class="p">)</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s1">&#39;spark-app&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s1">&#39;local[*]&#39;</span><span class="p">)</span>
 <span class="n">sc</span> <span class="o">=</span> <span class="n">SparkContext</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">)</span>
 
 <span class="n">sc</span>
@@ -11973,7 +11973,7 @@ a.anchor-link {
         <div>
             <p><b>SparkContext</b></p>
 
-            <p><a href="http://10.24.213.74:4040">Spark UI</a></p>
+            <p><a href="http://192.168.1.3:4040">Spark UI</a></p>
 
             <dl>
               <dt>Version</dt>
@@ -11981,7 +11981,7 @@ a.anchor-link {
               <dt>Master</dt>
                 <dd><code>local[*]</code></dd>
               <dt>AppName</dt>
-                <dd><code>lecture-lyon2</code></dd>
+                <dd><code>spark-app</code></dd>
             </dl>
         </div>
         
@@ -12214,7 +12214,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">number</span><span class="p">:</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12233,7 +12233,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</pre>
+<pre>[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</pre>
 </div>
 
 </div>
@@ -12256,7 +12256,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">rdd</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
 </pre></div>
 
@@ -12276,7 +12276,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>PythonRDD[7] at RDD at PythonRDD.scala:48</pre>
+<pre>PythonRDD[8] at RDD at PythonRDD.scala:48</pre>
 </div>
 
 </div>
@@ -12318,7 +12318,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>PythonRDD[7] at RDD at PythonRDD.scala:48
+<pre>PythonRDD[8] at RDD at PythonRDD.scala:48
 </pre>
 </div>
 </div>
@@ -12343,7 +12343,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">rdd</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>      <span class="c1"># specific methods to gather data back to driver</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>      <span class="c1"># specific methods to gather data back to driver</span>
 </pre></div>
 
 </div>
@@ -12360,7 +12360,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 1, 2]
+<pre>PythonRDD[9] at RDD at PythonRDD.scala:48
 </pre>
 </div>
 </div>
@@ -12402,7 +12402,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>b&#39;(4) PythonRDD[9] at RDD at PythonRDD.scala:48 []\n |  PythonRDD[7] at RDD at PythonRDD.scala:48 []\n |      CachedPartitions: 1; MemorySize: 134.0 B; ExternalBlockStoreSize: 0.0 B; DiskSize: 0.0 B\n |  ParallelCollectionRDD[6] at parallelize at PythonRDD.scala:480 []&#39;
+<pre>b&#39;(4) PythonRDD[10] at RDD at PythonRDD.scala:48 []\n |  PythonRDD[8] at RDD at PythonRDD.scala:48 []\n |  ParallelCollectionRDD[7] at parallelize at PythonRDD.scala:480 []&#39;
 </pre>
 </div>
 </div>
@@ -12449,7 +12449,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12468,7 +12468,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>PythonRDD[7] at RDD at PythonRDD.scala:48</pre>
+<pre>[0, 2, 4, 6, 8, 10, 12, 14]</pre>
 </div>
 
 </div>
@@ -12492,7 +12492,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12511,7 +12511,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>PythonRDD[7] at RDD at PythonRDD.scala:48</pre>
+<pre>[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]</pre>
 </div>
 
 </div>
@@ -12525,7 +12525,7 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="FlatMap">FlatMap<a class="anchor-link" href="#FlatMap">&#182;</a></h3><p>Return a new RDD by first applying a function to all elements of this RDD, and then flattening the results.</p>
-<p><span class="text-primary">Ex :</span> return all even elements in the matrix multiplied by 2</p>
+<p><span class="text-primary">Ex :</span> return a long matrix of rows [1, 2, 3] of dimension the number of elements in the <code>rdd</code> variable, then flatten it.</p>
 
 </div>
 </div>
@@ -12535,7 +12535,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">num</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">num</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12554,7 +12554,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[[1, 2, 3], [1, 2, 3], [1, 2, 3]]</pre>
+<pre>[1, 2, 3, 1, 2, 3]</pre>
 </div>
 
 </div>
@@ -12577,7 +12577,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">num</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">num</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12596,7 +12596,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[0, 1, 0]</pre>
+<pre>[0, 1]</pre>
 </div>
 
 </div>
@@ -12690,7 +12690,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>100</pre>
+<pre>16</pre>
 </div>
 
 </div>
@@ -12714,7 +12714,7 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12733,7 +12733,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>PythonRDD[7] at RDD at PythonRDD.scala:48</pre>
+<pre>120</pre>
 </div>
 
 </div>
@@ -12772,7 +12772,7 @@ a.anchor-link {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)],</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">rdd</span>
+<span class="n">rdd</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12791,7 +12791,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>ParallelCollectionRDD[14] at parallelize at PythonRDD.scala:480</pre>
+<pre>[(&#39;b&#39;, 2), (&#39;a&#39;, 6)]</pre>
 </div>
 
 </div>
@@ -12815,9 +12815,9 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countLetter</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)],</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">defLetter</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;vowel&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;consonnant&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;consonant&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;consonant&#39;</span><span class="p">)],</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">countLetter</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">defLetter</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countLetter</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)],</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">defLetter</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;vowel&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;consonant&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;consonant&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;consonant&#39;</span><span class="p">)],</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">countLetter</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">defLetter</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12836,10 +12836,7 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[(&#39;a&#39;, (1, &#39;vowel&#39;)),
- (&#39;a&#39;, (5, &#39;vowel&#39;)),
- (&#39;c&#39;, (2, &#39;consonant&#39;)),
- (&#39;b&#39;, (0, &#39;consonnant&#39;))]</pre>
+<pre>[(&#39;consonant&#39;, 8), (&#39;vowel&#39;, 6)]</pre>
 </div>
 
 </div>
@@ -12862,7 +12859,7 @@ a.anchor-link {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">textFile</span><span class="p">(</span><span class="s1">&#39;data/lorem.txt&#39;</span><span class="p">)</span>
-<span class="ne">NotImplementedError</span>
+<span class="n">rdd</span><span class="o">.</span><span class="n">flatMap</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="p">[(</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)])</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12881,7 +12878,12 @@ a.anchor-link {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>NotImplementedError</pre>
+<pre>[(&#39;&#39;, 4),
+ (&#39;lacus&#39;, 2),
+ (&#39;ut,&#39;, 1),
+ (&#39;urna&#39;, 1),
+ (&#39;sollicitudin&#39;, 1),
+ (&#39;consectetur&#39;, 2)]</pre>
 </div>
 
 </div>
@@ -12948,7 +12950,7 @@ a.anchor-link {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark</span> <span class="k">import</span> <span class="n">SparkConf</span>
 <span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">SparkSession</span>
 
-<span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s1">&#39;lecture-lyon2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s1">&#39;local[*]&#39;</span><span class="p">)</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s1">&#39;spark-app&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setMaster</span><span class="p">(</span><span class="s1">&#39;local[*]&#39;</span><span class="p">)</span>
 <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 <span class="n">spark</span>
 </pre></div>
@@ -12975,7 +12977,7 @@ a.anchor-link {
         <div>
             <p><b>SparkContext</b></p>
 
-            <p><a href="http://10.24.213.74:4040">Spark UI</a></p>
+            <p><a href="http://192.168.1.3:4040">Spark UI</a></p>
 
             <dl>
               <dt>Version</dt>
@@ -12983,7 +12985,7 @@ a.anchor-link {
               <dt>Master</dt>
                 <dd><code>local[*]</code></dd>
               <dt>AppName</dt>
-                <dd><code>lecture-lyon2</code></dd>
+                <dd><code>spark-app</code></dd>
             </dl>
         </div>
         
@@ -13367,14 +13369,14 @@ only showing top 8 rows
 <pre>+--------+----------+--------------------+
 |Survived|prediction|         probability|
 +--------+----------+--------------------+
-|       0|       0.0|[0.92472750542940...|
-|       1|       1.0|[0.23923739830860...|
-|       1|       1.0|[0.43069074059982...|
-|       1|       1.0|[0.00357142857142...|
-|       0|       0.0|[0.88815626045366...|
-|       0|       0.0|[0.87625149854890...|
-|       0|       0.0|[0.67639865879948...|
-|       0|       0.0|[0.85974040195690...|
+|       0|       0.0|[0.94480455907031...|
+|       1|       1.0|[0.14748728261314...|
+|       1|       0.0|[0.56435761978134...|
+|       1|       1.0|[0.00842868039664...|
+|       0|       0.0|[0.87721750004669...|
+|       0|       0.0|[0.87047146830066...|
+|       0|       0.0|[0.75572419131556...|
+|       0|       0.0|[0.82898485772874...|
 +--------+----------+--------------------+
 only showing top 8 rows
 
@@ -13424,14 +13426,14 @@ only showing top 8 rows
 <pre>+--------+----------+--------------------+
 |Survived|prediction|         probability|
 +--------+----------+--------------------+
-|       0|       0.0|[0.92472750542940...|
-|       1|       1.0|[0.23923739830860...|
-|       1|       1.0|[0.43069074059982...|
-|       1|       1.0|[0.00357142857142...|
-|       0|       0.0|[0.88815626045366...|
-|       0|       0.0|[0.87625149854890...|
-|       0|       0.0|[0.67639865879948...|
-|       0|       0.0|[0.85974040195690...|
+|       0|       0.0|[0.94480455907031...|
+|       1|       1.0|[0.14748728261314...|
+|       1|       0.0|[0.56435761978134...|
+|       1|       1.0|[0.00842868039664...|
+|       0|       0.0|[0.87721750004669...|
+|       0|       0.0|[0.87047146830066...|
+|       0|       0.0|[0.75572419131556...|
+|       0|       0.0|[0.82898485772874...|
 +--------+----------+--------------------+
 only showing top 8 rows
 
