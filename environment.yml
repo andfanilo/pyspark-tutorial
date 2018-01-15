@@ -1,4 +1,4 @@
-name: pyspark-tutorial
+name: pyspark
 channels:
 - conda-forge
 - defaults
@@ -7,8 +7,6 @@ dependencies:
 - jupyter
 - numpy
 - pandas
+- pyspark
 - python=3
 - seaborn
-- pip:
-  - path.py
-  - pyspark==2.2.0.post0

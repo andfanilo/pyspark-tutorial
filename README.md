@@ -9,26 +9,35 @@ Inside each notebook, we have documented a number of questions and unimplemented
 ## Prerequisites 
 
 * Anaconda
-* a `bin/spark` folder at the root of your project, containing Spark 2.2.0. The best way to do it is to download the archive from [Spark downloads](https://spark.apache.org/downloads.html) and uncompress it as `bin/spark`.
 
-All the following commands are written with Windows users in mind, Unix/MacOS users should only need to edit Anaconda activation/deactivation by prepending the commands with `source`.
+For those using the command line, all the following commands are written with Windows users in mind, Unix/MacOS users should only need to edit Anaconda activation/deactivation by prepending the commands with `source`.
 
 ## Install
 
-We provide you with a `environment.yml` which Anaconda can use to create a Python environment named `pyspark-tutorial`.
+We provide you with a `environment.yml` which Anaconda can use to create a Python environment named `pyspark`.
+
+#### Using Anaconda Navigator
+
+Go to `Environments` tab then tap `Import` button. Directly browse to the `environment.yml` file and press enter. You should now be able to select the environment.
+
+#### Using Anaconda prompt
 
 ```
 conda env create -f environment.yml
-activate pyspark-tutorial
+activate pyspark
 ```
 
 ## Run
 
-Run a Jupyter Notebook session : `invoke notebook`.
+#### Using Anaconda Navigator
 
-The invoke command will automatically send `bin/spark` as the `SPARK_HOME` environment variable so you need to have downloaded Spark inside `bin/spark` before, which is normally easily done in the previous section. If you wish to change that use the `--spark_home` flag : `invoke notebook -s path/to/spark.`
+Go to `Environments` tab, select the `pyspark` environment. When your mouse is over the environment, you should see a green arrow, click on it and select `Open with Jupyter notebook`. Then browse to the folder with all the notebooks.
 
-When you are done with it, don't forget to deactivate your Anaconda environment : `deactivate`
+#### Using Anaconda prompt
+
+Run a Jupyter Notebook session : `jupyter notebook` from the root of your project, when in your `pyspark` conda environment.
+
+When you are done with the environment, don't forget to deactivate your Anaconda environment : `deactivate`
 
 ## Submit
 
