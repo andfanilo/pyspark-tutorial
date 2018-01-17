@@ -8,7 +8,8 @@ Inside each notebook, we have documented a number of questions and unimplemented
 
 ## Prerequisites 
 
-* Anaconda
+* [Anaconda 5+](https://www.anaconda.com/download/)
+* Java 8. You may experience difficulties with Java 9. You can set the `JAVA_HOME` environment variable to point to the Java folder you want to use for the project. You may also install Java JDK 8 **inside** your Anaconda environment with `conda install -c cyclus java-jdk`.
 
 For those using the command line, all the following commands are written with Windows users in mind, Unix/MacOS users should only need to edit Anaconda activation/deactivation by prepending the commands with `source`.
 
