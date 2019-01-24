@@ -1,12 +1,12 @@
 name: pyspark
 channels:
-- conda-forge
-- defaults
+  - defaults
 dependencies:
-- bokeh
-- jupyter
-- numpy
-- pandas
-- pyspark
-- python=3
-- seaborn
+  - bokeh
+  - jupyter
+  - numpy
+  - pandas
+  - psutil
+  - pyspark=2.3.2
+  - python=3.6
+  - seaborn
