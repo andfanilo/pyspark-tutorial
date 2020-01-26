@@ -22,7 +22,7 @@ Go to `Environments` tab then tap `Import` button. Name it `pyspark-tutorial`. I
 #### Using Anaconda prompt
 
 ```
-conda env create -n pyspark-tutorial python=3.7
+conda create -n pyspark-tutorial python=3.7
 conda activate pyspark
 pip install -r requirements.txt
 ```
