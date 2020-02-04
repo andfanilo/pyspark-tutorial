@@ -8,10 +8,10 @@ Inside each notebook, we have documented a number of questions and unimplemented
 
 ## Prerequisites
 
-- [Anaconda 5+](https://www.anaconda.com/download/)
+- [Anaconda 2019+](https://www.anaconda.com/download/)
 - Java 8. You may experience difficulties with Java 9. You can set the `JAVA_HOME` environment variable to point to the Java folder you want to use for the project. You may also install Java JDK 8 **inside** your Anaconda environment with `conda install -c cyclus java-jdk`.
 
-## Install
+## Run
 
 We provide you with a `requirements.txt` which is used to download dependencies in a conda environment we will name `pyspark-tutorial`.
 
@@ -19,25 +19,20 @@ We provide you with a `requirements.txt` which is used to download dependencies 
 
 Go to `Environments` tab then tap `Import` button. Name it `pyspark-tutorial`. In the dropdown type of file select `Pip requirement file .txt` and browse to the `requirements.txt` file and press enter to create the environment. You should now be able to select the environment.
 
-#### Using Anaconda prompt
-
-```
-conda env create -n pyspark-tutorial python=3.7
-conda activate pyspark
-pip install -r requirements.txt
-```
-
-## Run
-
-#### Using Anaconda Navigator
-
 Go to `Environments` tab, select the `pyspark-tutorial` environment. When your mouse is over the environment, you should see a green arrow, click on it and select `Open with Jupyter notebook`. Then browse to the folder with all the notebooks.
 
 #### Using Anaconda prompt
 
+```
+conda env create -n pyspark-tutorial python=3.6
+conda activate pyspark-tutorial
+pip install -r requirements.txt
+jupyter notebook
+```
+
 Run a Jupyter Notebook session : `jupyter notebook` from the root of your project, when in your `pyspark-tutorial` conda environment.
 
-When you are done with the environment, don't forget to deactivate your Anaconda environment : `deactivate`
+When you are done with the environment, don't forget to deactivate your Anaconda environment : `conda deactivate`
 
 ## Submit
 
