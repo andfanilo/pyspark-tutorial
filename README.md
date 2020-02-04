@@ -24,7 +24,7 @@ Go to `Environments` tab, select the `pyspark-tutorial` environment. When your m
 #### Using Anaconda prompt
 
 ```
-conda env create -n pyspark-tutorial python=3.6
+conda create -n pyspark-tutorial python=3.6
 conda activate pyspark-tutorial
 pip install -r requirements.txt
 jupyter notebook
