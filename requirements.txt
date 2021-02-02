@@ -6,7 +6,7 @@
 #
 attrs==19.3.0             # via jsonschema
 backcall==0.1.0           # via ipython
-bleach==3.1.0             # via nbconvert
+bleach==3.3.0             # via nbconvert
 bokeh==1.4.0
 colorama==0.4.3           # via ipython
 cycler==0.10.0            # via matplotlib
