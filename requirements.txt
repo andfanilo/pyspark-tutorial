@@ -52,7 +52,7 @@ python-dateutil==2.8.1    # via bokeh, jupyter-client, matplotlib, pandas
 pytz==2019.3              # via pandas
 pywin32==227              # via jupyter-client, jupyter-core
 pywinpty==0.5.7           # via terminado
-pyyaml==5.2               # via bokeh
+pyyaml==5.4               # via bokeh
 pyzmq==18.1.1             # via jupyter-client, notebook
 qtconsole==4.6.0          # via jupyter
 scipy==1.4.1              # via seaborn
