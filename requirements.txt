@@ -44,7 +44,7 @@ prometheus-client==0.7.1  # via notebook
 prompt-toolkit==2.0.10    # via ipython, jupyter-console
 psutil==5.6.7
 py4j==0.10.7              # via pyspark
-pygments==2.5.2           # via ipython, jupyter-console, nbconvert, qtconsole
+pygments==2.7.4           # via ipython, jupyter-console, nbconvert, qtconsole
 pyparsing==2.4.6          # via matplotlib, packaging
 pyrsistent==0.15.6        # via jsonschema
 pyspark==2.4.4
