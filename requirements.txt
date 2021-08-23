@@ -32,7 +32,7 @@ mistune==0.8.4            # via nbconvert
 more-itertools==8.0.2     # via zipp
 nbconvert==5.6.1          # via jupyter, notebook
 nbformat==4.4.0           # via ipywidgets, nbconvert, notebook
-notebook==6.0.2           # via jupyter, widgetsnbextension
+notebook==6.4.1           # via jupyter, widgetsnbextension
 numpy==1.18.0
 packaging==19.2           # via bokeh
 pandas==0.25.3
