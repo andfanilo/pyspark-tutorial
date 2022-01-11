@@ -4,12 +4,16 @@ Welcome to the Pyspark tutorial section.
 
 The courses comprises of 4 folders containing notebooks. Folders and notebooks are sorted in order of difficulty given their name, so you should follow the numerotation. For example, you should finish all notebooks in `1-beginner` before starting `2-novice`. Likewise, when doing `2-novice` finish the `1-...` notebook before doing `2-...`.
 
-Inside each notebook, we have documented a number of questions and unimplemented code cells answering the question, followed by a code cell which acts as test cases for the function called `Graded cell`. Your submission will be graded on how many test cases you pass given your implementation of the previous function. Be careful as the instructor has hidden test cases on his side so don't try to circumvent the system by just returning the expected value, and learn nothing.
+Inside each notebook, we have documented a number of questions and unimplemented code cells answering the question, followed by a code cell which acts as test cases for the function called `Graded cell`. Your submission will be graded on how many test cases you pass given your implementation of the previous function. 
+
+**PS**: The instructor has hidden test cases on his side so don't try to circumvent the system by just returning the expected value in your method.
 
 ## Prerequisites
 
 - [Anaconda 2019+](https://www.anaconda.com/download/)
-- Java 8. You may experience difficulties with Java 9. You can set the `JAVA_HOME` environment variable to point to the Java folder you want to use for the project. You may also install Java JDK 8 **inside** your Anaconda environment with `conda install -c cyclus java-jdk`.
+- Required Java 8. You may experience difficulties with Java 9/13. 
+    - You can set the `JAVA_HOME` environment variable to point to the Java 8 folder you want to use for the project, from `Edit the system environment variables` window or `set JAVA_HOME=<path_to_java>` in command-line before running `jupyter notebook`. 
+    - You may also install Java JDK 8 **inside** your Anaconda environment with `conda install -c cyclus java-jdk`.
 
 ## Run
 
@@ -24,7 +28,7 @@ Go to `Environments` tab, select the `pyspark-tutorial` environment. When your m
 #### Using Anaconda prompt
 
 ```
-conda create -n pyspark-tutorial python=3.6
+conda env create -n pyspark-tutorial python=3.8
 conda activate pyspark-tutorial
 pip install -r requirements.txt
 jupyter notebook
@@ -32,11 +36,14 @@ jupyter notebook
 
 Run a Jupyter Notebook session : `jupyter notebook` from the root of your project, when in your `pyspark-tutorial` conda environment.
 
+PS: you may run into `java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset.` warnings on Windows. Do not worry about it, they are necessary for remote connections only.
+
 When you are done with the environment, don't forget to deactivate your Anaconda environment : `conda deactivate`
 
 ## Submit
 
 At the end of the course, send your assignments by email to the instructor.
+- **BEFORE SENDING**: check that your Jupyter notebook runs from start to finish when you run it from top to bottom, using `Kernel > Restart & Run All`. Clean up all unecessary cells. Your grade is based on how far the execution of the notebook goes from top to bottom without me going in.
 
 # Contributing guide
 
