@@ -3,3 +3,5 @@
 
 # nbgrader
 .nbgrader.log
+
+.vscode
