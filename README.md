@@ -11,9 +11,9 @@ Inside each notebook, we have documented a number of questions and unimplemented
 ## Prerequisites
 
 - [Anaconda 2019+](https://www.anaconda.com/download/)
-- Required Java 8. You may experience difficulties with Java 9/13. 
-    - You can set the `JAVA_HOME` environment variable to point to the Java 8 folder you want to use for the project, from `Edit the system environment variables` window or `set JAVA_HOME=<path_to_java>` in command-line before running `jupyter notebook`. 
-    - You may also install Java JDK 8 **inside** your Anaconda environment with `conda install -c cyclus java-jdk`.
+- Required Java 8/11. 
+    - You can set the `JAVA_HOME` environment variable to point to the Java 8/11 folder you want to use for the project, from `Edit the system environment variables` window or `set JAVA_HOME=<path_to_java>` in command-line before running `jupyter notebook`. 
+    - You may also install Java OpenJDK **inside** your Anaconda environment with `conda install openjdk`. The `JAVA_HOME` variable should be automatically updated for this environment only.
 
 ## Run
 
