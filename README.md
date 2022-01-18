@@ -25,18 +25,23 @@ Go to `Environments` tab then tap `Import` button. Name it `pyspark-tutorial`. I
 
 Go to `Environments` tab, select the `pyspark-tutorial` environment. When your mouse is over the environment, you should see a green arrow, click on it and select `Open with Jupyter notebook`. Then browse to the folder with all the notebooks.
 
+- you may need to define the `PYSPARK_PYTHON` environment variable so Spark workers can point to the correct Python command.
+
 #### Using Anaconda prompt
 
 ```
 conda env create -n pyspark-tutorial python=3.8
 conda activate pyspark-tutorial
 pip install -r requirements.txt
+set PYSPARK_PYTHON=python
 jupyter notebook
 ```
 
 Run a Jupyter Notebook session : `jupyter notebook` from the root of your project, when in your `pyspark-tutorial` conda environment.
 
-PS: you may run into `java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset.` warnings on Windows. Do not worry about it, they are necessary for remote connections only.
+Notes: 
+- you may run into `java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset.` warnings on Windows. Do not worry about it, they are necessary for remote connections only.
+- you may need to define the `PYSPARK_PYTHON` environment variable so Spark workers can point to the correct Python command.
 
 When you are done with the environment, don't forget to deactivate your Anaconda environment : `conda deactivate`
 
