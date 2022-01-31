@@ -30,7 +30,7 @@ Go to `Environments` tab, select the `pyspark-tutorial` environment. When your m
 #### Using Anaconda prompt
 
 ```
-conda env create -n pyspark-tutorial python=3.8
+conda create -n pyspark-tutorial python=3.8
 conda activate pyspark-tutorial
 pip install -r requirements.txt
 set PYSPARK_PYTHON=python
