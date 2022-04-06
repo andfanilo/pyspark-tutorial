@@ -117,7 +117,7 @@ nest-asyncio==1.5.4
     #   jupyter-client
     #   nbclient
     #   notebook
-notebook==6.4.6
+notebook==6.4.10
     # via
     #   jupyter
     #   widgetsnbextension
