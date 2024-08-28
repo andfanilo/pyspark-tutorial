@@ -29,15 +29,23 @@ Go to `Environments` tab, select the `pyspark-tutorial` environment. When your m
 
 #### Using Anaconda prompt
 
-```
+Create Environment:
+
+```sh
 conda create -n pyspark-tutorial python=3.8
 conda activate pyspark-tutorial
 pip install -r requirements.txt
-set PYSPARK_PYTHON=python
-jupyter notebook
+# pip install bokeh jupyter numpy pandas psutil pyspark seaborn
 ```
 
-Run a Jupyter Notebook session : `jupyter notebook` from the root of your project, when in your `pyspark-tutorial` conda environment.
+Run Notebook:
+
+```sh
+set PYSPARK_PYTHON=python
+jupyter lab
+```
+
+Run a JupyterLab session : `jupyter lab` from the root of your project, when in your `pyspark-tutorial` conda environment.
 
 Notes: 
 - you may run into `java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset.` warnings on Windows. Do not worry about it, they are necessary for remote connections only.
