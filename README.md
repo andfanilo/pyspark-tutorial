@@ -48,7 +48,25 @@ When you are done with the environment, don't forget to deactivate your Anaconda
 ## Submit
 
 At the end of the course, send your assignments by email to the instructor.
-- **BEFORE SENDING**: check that your Jupyter notebook runs from start to finish when you run it from top to bottom, using `Kernel > Restart & Run All`. Clean up all unecessary cells. Your grade is based on how far the execution of the notebook goes from top to bottom without me going in.
+
+**BEFORE SENDING:**
+
+- Check that your Jupyter notebook runs from start to finish when you run it from top to bottom, using `Kernel > Restart & Run All`. Clean up all unecessary cells. Your grade is based on how far the execution of the notebook goes from top to bottom without me going in.
+- Don't rename the files, and preserve the folder structure when sending the zipped project, even if you did not complete the notebook. It should look like:
+
+```
+├── 1-beginner
+│   └── 1-Initiation.ipynb
+├── 2-novice
+│   ├── FL_insurance.csv
+│   ├── 1-Initiation-RDD.ipynb
+│   └── 2-Pagerank-RDD.ipynb
+└── 3-advanced
+    ├── FL_insurance.csv
+    ├── titanic.csv
+    ├── 1-Initiation-SparkSQL.ipynb
+    └── 2-Advanced-SQL-and-ML.ipynb
+```
 
 # Contributing guide
 
