@@ -32,10 +32,10 @@ Go to `Environments` tab, select the `pyspark-tutorial` environment. When your m
 Create Environment:
 
 ```sh
-conda create -n pyspark-tutorial python=3.8
+conda create -n pyspark-tutorial python=3.11
 conda activate pyspark-tutorial
-pip install -r requirements.txt
-# pip install bokeh jupyter numpy pandas psutil pyspark seaborn
+pip install bokeh jupyter numpy pandas psutil pyspark seaborn
+# pip install -r requirements.txt
 ```
 
 Run Notebook:
