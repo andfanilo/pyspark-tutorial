@@ -11,8 +11,8 @@ Inside each notebook, we have documented a number of questions and unimplemented
 ## Prerequisites
 
 - [Anaconda 2019+](https://www.anaconda.com/download/)
-- Required Java 8/11. 
-    - You can set the `JAVA_HOME` environment variable to point to the Java 8/11 folder you want to use for the project, from `Edit the system environment variables` window or `set JAVA_HOME=<path_to_java>` in command-line before running `jupyter notebook`. 
+- Required Java 17+. 
+    - You can set the `JAVA_HOME` environment variable to point to the Java folder you want to use for the project, from `Edit the system environment variables` window or `set JAVA_HOME=<path_to_java>` in command-line before running `jupyter notebook`. 
     - You may also install Java OpenJDK **inside** your Anaconda environment with `conda install openjdk`. The `JAVA_HOME` variable should be automatically updated for this environment only.
 
 ## Run
@@ -25,17 +25,17 @@ Go to `Environments` tab then tap `Import` button. Name it `pyspark-tutorial`. I
 
 Go to `Environments` tab, select the `pyspark-tutorial` environment. When your mouse is over the environment, you should see a green arrow, click on it and select `Open with Jupyter notebook`. Then browse to the folder with all the notebooks.
 
-- you may need to define the `PYSPARK_PYTHON` environment variable so Spark workers can point to the correct Python command.
+- you may need to define the `PYSPARK_PYTHON` environment variable so Spark workers can point to the correct Python command: `set PYSPARK_PYTHON=python`
 
 #### Using Anaconda prompt
 
 Create Environment:
 
 ```sh
-conda create -n pyspark-tutorial python=3.8
+conda create -n pyspark-tutorial python=3.10
 conda activate pyspark-tutorial
 pip install -r requirements.txt
-# pip install bokeh jupyter numpy pandas psutil pyspark seaborn
+# OR `pip install bokeh jupyter numpy pandas psutil pyspark seaborn`
 ```
 
 Run Notebook:
@@ -49,7 +49,7 @@ Run a JupyterLab session : `jupyter lab` from the root of your project, when in 
 
 Notes: 
 - you may run into `java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset.` warnings on Windows. Do not worry about it, they are necessary for remote connections only.
-- you may need to define the `PYSPARK_PYTHON` environment variable so Spark workers can point to the correct Python command.
+- you may need to define the `PYSPARK_PYTHON` environment variable so Spark workers can point to the correct Python command: `set PYSPARK_PYTHON=python`
 
 When you are done with the environment, don't forget to deactivate your Anaconda environment : `conda deactivate`
 
