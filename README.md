@@ -39,6 +39,11 @@ jupyter lab
 
 Run a JupyterLab session : `jupyter lab` from the root of your project, when in your `pyspark-tutorial` conda environment.
 
+Run it in a docker container :
+```sh
+docker run -it --rm -p 8888:8888 -p 4040:4040 -v "[path_to_your_tutorial_folder]:/home/jovyan/work" jupyter/pyspark-notebook
+```
+
 Notes: 
 - you may run into `java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset.` warnings on Windows. Do not worry about it, they are necessary for remote connections only.
 - you may need to define the `PYSPARK_PYTHON` environment variable so Spark workers can point to the correct Python command: `set PYSPARK_PYTHON=python`
