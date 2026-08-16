@@ -10,45 +10,39 @@ Inside each notebook, we have documented a number of questions and unimplemented
 
 ## Prerequisites
 
-- [Anaconda 2019+](https://www.anaconda.com/download/)
-- Required Java JDK 17/21. 
-    - You can set the `JAVA_HOME` environment variable to point to the Java folder you want to use for the project, from `Edit the system environment variables` window or `set JAVA_HOME=<path_to_java>` in command-line before running `jupyter notebook`. 
-    - You may also install Java OpenJDK **inside** your Anaconda environment with `conda install openjdk`. The `JAVA_HOME` variable should be automatically updated for this environment only.
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) to manage Python and dependencies.
+- Required Java JDK 17/21.
+    - You can set the `JAVA_HOME` environment variable to point to the Java folder you want to use for the project, from `Edit the system environment variables` window or `set JAVA_HOME=<path_to_java>` in command-line before running `jupyter lab`.
+
+You do **not** need to install Python yourself: `uv` reads `pyproject.toml` and downloads the right interpreter for you.
+
+> **Note on the Python version:** this project is pinned to Python 3.10. On Windows, PySpark's Python worker crashes on Python 3.11 and above when an RDD is only partially read (`take()`, `first()`, and the MLlib exercise in `3-advanced`). `uv` enforces the pin for you, so please don't override it.
 
 ## Run
 
-We provide you with a `requirements.txt` which is used to download dependencies in a conda environment we will name `pyspark-tutorial`.
-
-#### Using Anaconda prompt
-
-Create Environment:
+Install the dependencies (this creates a local `.venv` folder):
 
 ```sh
-conda create -n pyspark-tutorial python=3.12
-conda activate pyspark-tutorial
-pip install -r requirements.txt
-# OR `pip install bokeh jupyter numpy pandas psutil pyspark seaborn`
+uv sync
 ```
 
-Run Notebook:
+Then start JupyterLab from the root of the project:
 
 ```sh
-set PYSPARK_PYTHON=python
-jupyter lab
+uv run jupyter lab
 ```
 
-Run a JupyterLab session : `jupyter lab` from the root of your project, when in your `pyspark-tutorial` conda environment.
+Browse to the folder with the notebooks and start working.
 
-Run it in a docker container :
+Run it in a docker container instead:
+
 ```sh
 docker run -it --rm -p 8888:8888 -p 4040:4040 -v "[path_to_your_tutorial_folder]:/home/jovyan/work" jupyter/pyspark-notebook
 ```
 
 Notes: 
 - you may run into `java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset.` warnings on Windows. Do not worry about it, they are necessary for remote connections only.
-- you may need to define the `PYSPARK_PYTHON` environment variable so Spark workers can point to the correct Python command: `set PYSPARK_PYTHON=python`
-
-When you are done with the environment, don't forget to deactivate your Anaconda environment : `conda deactivate`
+- you may need to define the `PYSPARK_PYTHON` environment variable so Spark workers can point to the correct Python command: `set PYSPARK_PYTHON=python` (`$env:PYSPARK_PYTHON = "python"` in PowerShell).
 
 ## Submit
 

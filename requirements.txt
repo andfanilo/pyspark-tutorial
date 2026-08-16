@@ -1,8 +1,0 @@
-bokeh
-jupyter
-jupyterlab
-numpy
-pandas
-psutil
-pyspark
-seaborn
