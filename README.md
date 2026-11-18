@@ -8,41 +8,28 @@ Inside each notebook, we have documented a number of questions and unimplemented
 
 **PS**: The instructor has hidden test cases on his side so don't try to circumvent the system by just returning the expected value in your method.
 
-## Prerequisites
+## Setup
 
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) to manage Python and dependencies.
-- Required Java JDK 17/21.
-    - You can set the `JAVA_HOME` environment variable to point to the Java folder you want to use for the project, from `Edit the system environment variables` window or `set JAVA_HOME=<path_to_java>` in command-line before running `jupyter lab`.
+Follow the [Spark tutorial setup](https://andfanilo.github.io/lyon2/spark/). It shows how to install Java 17 or 21 and set `JAVA_HOME`, install the environment with `uv sync`, and open the notebooks in JupyterLab or VS Code.
 
-You do **not** need to install Python yourself: `uv` reads `pyproject.toml` and downloads the right interpreter for you.
-
-> **Note on the Python version:** this project is pinned to Python 3.10. On Windows, PySpark's Python worker crashes on Python 3.11 and above when an RDD is only partially read (`take()`, `first()`, and the MLlib exercise in `3-advanced`). `uv` enforces the pin for you, so please don't override it.
-
-## Run
-
-Install the dependencies (this creates a local `.venv` folder):
+In short, once Java is installed:
 
 ```sh
 uv sync
-```
-
-Then start JupyterLab from the root of the project:
-
-```sh
 uv run jupyter lab
 ```
 
-Browse to the folder with the notebooks and start working.
+You don't need to install Python or set `PYSPARK_PYTHON`. `uv` downloads the Python version in `pyproject.toml`, and the Spark setup cell at the top of each notebook sets `PYSPARK_PYTHON` for you. Always run that cell first.
 
-Run it in a docker container instead:
+> **Note on the Python version:** this project is pinned to Python 3.10. On Windows, PySpark's Python worker crashes on Python 3.11 and above when an RDD is only partially read (`take()`, `first()`, and the MLlib exercise in `3-advanced`). `uv` enforces the pin, so don't override it.
+
+### Run it in Docker instead
+
+Run the tutorial in a Docker container:
 
 ```sh
 docker run -it --rm -p 8888:8888 -p 4040:4040 -v "[path_to_your_tutorial_folder]:/home/jovyan/work" jupyter/pyspark-notebook
 ```
-
-Notes: 
-- you may run into `java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset.` warnings on Windows. Do not worry about it, they are necessary for remote connections only.
-- you may need to define the `PYSPARK_PYTHON` environment variable so Spark workers can point to the correct Python command: `set PYSPARK_PYTHON=python` (`$env:PYSPARK_PYTHON = "python"` in PowerShell).
 
 ## Submit
 
